@@ -18,16 +18,28 @@ namespace Bakhsh_Paziri
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-           try
+            try
             {
                 listBox1.Items.Clear();
                 for (int i = 1; i <= Convert.ToInt64(textBox1.Text); i++)
                 {
-                    if (Convert.ToInt64(textBox1.Text) % i == 0) listBox1.Items.Add(i.ToString());
-                    label4.Text = listBox1.Items.Count.ToString();
+                    if (Convert.ToInt64(textBox1.Text) % i == 0)
+                    {
+                        listBox1.Items.Add(i.ToString());
+                        label4.Text = listBox1.Items.Count.ToString();
+                    }
+
                 }
+
             }
             catch { }
+
+        }
+
+        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
+            if (e.KeyChar == 8)  label4.Text = " "; 
         }
     }
 }
